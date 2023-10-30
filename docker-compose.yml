@@ -1,0 +1,18 @@
+version: "3"
+
+services:
+  oracle-xe:
+    image: gvenzl/oracle-xe:21.3.0-slim-faststart
+    container_name: oracle-xe
+    ports:
+      - 1521:1521
+    environment:
+      ORACLE_PASSWORD: password
+    volumes:
+      - oracle-volume:/opt/oracle/oradata
+      - ./src/main/resources/scripts/init_script.sql:/container-entrypoint-initdb.d/init_script.sql
+    restart: always
+
+volumes:
+  oracle-volume:
+    external: false

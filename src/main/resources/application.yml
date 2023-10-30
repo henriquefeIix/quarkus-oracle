@@ -1,0 +1,8 @@
+quarkus:
+  datasource:
+    db-kind: oracle
+    username: manager
+    password: password
+    jdbc:
+      url: jdbc:oracle:thin:@//localhost:1521/XE
+      acquisition-timeout: 20
